@@ -1,0 +1,26 @@
+# ## Configure 'ip' variable to bind kubernetes services on a
+# ## different ip than the default iface
+node1 ansible_host=k8s-01 ansible_user=vagrant ip=172.17.8.101 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+node2 ansible_host=k8s-02 ansible_user=vagrant ip=172.17.8.102 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+node3 ansible_host=k8s-03 ansible_user=vagrant ip=172.17.8.103 ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
+
+# ## configure a bastion host if your nodes are not directly reachable
+# bastion ansible_ssh_host=x.x.x.x
+
+[kube-master]
+node1
+node2
+
+[etcd]
+node1
+node2
+node3
+
+[kube-node]
+node1
+node2
+node3
+
+[k8s-cluster:children]
+kube-node
+kube-master
