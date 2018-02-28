@@ -161,9 +161,8 @@ efk_enabled: true
 helm_enabled: true
 istio_enabled: false
 registry_enabled: false
-enable_network_policy: false
+enable_network_policy: true
 local_volume_provisioner_enabled: false
-persistent_volumes_enabled: false
 cephfs_provisioner_enabled: false
 
 # Base path for local volume provisioner addon
