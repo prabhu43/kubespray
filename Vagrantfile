@@ -64,6 +64,7 @@ Vagrant.configure("2") do |config|
 
       # Disable swap for each vm
       config.vm.provision "shell", inline: "swapoff -a"
+      config.vm.provision "shell", inline: "sed -i '/ swap /s/^/#/' /etc/fstab"
     end
     
   end
