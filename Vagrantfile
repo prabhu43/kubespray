@@ -52,13 +52,6 @@ Vagrant.configure("2") do |config|
       end
 
       ip = "#{$subnet}.#{i+100}"
-      host_vars[vm_name] = {
-        "ip": ip,
-        "bootstrap_os": SUPPORTED_OS[$os][:bootstrap_os],
-        "local_release_dir" => $local_release_dir,
-        "download_run_once": "False",
-        "kube_network_plugin": $network_plugin
-      }
 
       config.vm.network :private_network, ip: ip
 

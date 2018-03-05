@@ -6,7 +6,7 @@
 # upstream bug: https://github.com/kubernetes/kubeadm/issues/441
 - name: Disable kube_basic_auth until kubeadm/441 is fixed
   set_fact:
-    kube_basic_auth: false
+    kube_basic_auth: true
   when: kubeadm_enabled|bool|default(false)
 
 - import_tasks: users-file.yml
